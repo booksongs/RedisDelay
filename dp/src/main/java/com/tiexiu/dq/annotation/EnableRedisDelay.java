@@ -2,6 +2,7 @@ package com.tiexiu.dq.annotation;
 
 import com.tiexiu.dq.config.RedissonFactoryBuilder;
 import com.tiexiu.dq.config.RedissonProperties;
+import com.tiexiu.dq.confirm.DefaultConfirmPersistenceStrategy;
 import com.tiexiu.dq.listener.RedisEndpointListener;
 import org.springframework.context.annotation.Import;
 
@@ -11,6 +12,8 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Import({RedisListenerConfigurationSelector.class, RedissonFactoryBuilder.class,
-        RedissonProperties.class, RedisEndpointListener.class})
+        RedissonProperties.class, RedisEndpointListener.class,
+        DefaultConfirmPersistenceStrategy.class
+})
 public @interface EnableRedisDelay {
 }

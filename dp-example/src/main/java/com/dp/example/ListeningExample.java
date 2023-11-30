@@ -13,9 +13,14 @@ public class ListeningExample {
         log.info("ORDER_PAYMENT_TIMEOUT:{}", order);
     }
 
-    @RedisDelayQueue(value = "ORDER_TIMEOUT_NOT_EVALUATED", containerFactory = "customRedissonDelayQueue")
+    @RedisDelayQueue(value = "ORDER_TIMEOUT_NOT_EVALUATED",
+            containerFactory = "customRedissonDelayQueue",
+            isRetry = true,
+            retryAttempts = 3
+    )
     public void example2(Order order) {
         log.info("ORDER_TIMEOUT_NOT_EVALUATED:{}", order);
+        throw new RuntimeException("test");
     }
 
 }

@@ -15,4 +15,14 @@ public @interface RedisDelayQueue {
     String value();
 
     String containerFactory() default "";
+
+    /**
+     * 是否重试
+     */
+    boolean isRetry() default false;
+
+    /**
+     * 重试次数
+     */
+    int retryAttempts() default 0;
 }

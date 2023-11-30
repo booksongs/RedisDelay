@@ -28,5 +28,19 @@ public class RedissonProperties {
     private String password;
 
     private int port = 6379;
+    /**
+     * 全局重试开关,优先级低于 RedisDelayQueue 注解的设置
+     */
+    private Boolean retry = false;
+
+    /**
+     * 尝试次数
+     */
+    private int retryAttempts = 0;
+
+    /**
+     * 重试保存策略
+     */
+    private String ConfirmPersistenceStrategy = "defaultConfirmPersistenceStrategy";
 
 }
