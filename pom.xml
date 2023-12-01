@@ -18,9 +18,9 @@
 
 
     <modules>
-        <module>dp-core</module>
-        <module>dp-example</module>
-        <module>dp-spring-boot-starter</module>
+        <module>rd-core</module>
+        <module>rd-example</module>
+        <module>rd-spring-boot-starter</module>
     </modules>
 
 
@@ -32,17 +32,17 @@
         <dependencies>
             <dependency>
                 <groupId>com.tiexiu</groupId>
-                <artifactId>dp-core</artifactId>
+                <artifactId>rd-core</artifactId>
                 <version>0.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.tiexiu</groupId>
-                <artifactId>dp-example</artifactId>
+                <artifactId>rd-example</artifactId>
                 <version>0.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.tiexiu</groupId>
-                <artifactId>dp-spring-boot-starter</artifactId>
+                <artifactId>rd-spring-boot-starter</artifactId>
                 <version>0.0.1</version>
             </dependency>
             <dependency>
