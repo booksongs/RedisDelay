@@ -1,4 +1,4 @@
-package com.dp.example;
+package com.tiexiu.dp.example;
 
 import com.tiexiu.dq.config.DelayRedisson;
 import com.tiexiu.dq.util.RedissonDelayedQueue;
@@ -23,16 +23,15 @@ public class ExampleController {
 
     @GetMapping("/addQueue")
     public void addQueue() {
-//        RedissonDelayedQueue.offer(new Order("购买小米", "小米14"),
-//                5, TimeUnit.SECONDS, Constant.ORDER_PAYMENT_TIMEOUT,
-//                delayRedisson
-//        );
+        RedissonDelayedQueue.offer(new Order("购买小米", "小米14"),
+                5, TimeUnit.SECONDS, Constant.ORDER_PAYMENT_TIMEOUT,
+                delayRedisson
+        );
         RedissonDelayedQueue.offer(new Order("购买小米", "小米14"),
                 6, TimeUnit.SECONDS, Constant.ORDER_TIMEOUT_NOT_EVALUATED,
                 customRedissonDelayQueue
         );
     }
-
 
 }
 

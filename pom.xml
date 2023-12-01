@@ -18,25 +18,37 @@
 
 
     <modules>
-        <module>dp</module>
+        <module>dp-core</module>
         <module>dp-example</module>
+        <module>dp-spring-boot-starter</module>
     </modules>
 
 
     <properties>
         <java.version>8</java.version>
+        <redisson.version>3.23.1</redisson.version>
     </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.tiexiu</groupId>
-                <artifactId>dp</artifactId>
+                <artifactId>dp-core</artifactId>
                 <version>0.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.tiexiu</groupId>
                 <artifactId>dp-example</artifactId>
                 <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tiexiu</groupId>
+                <artifactId>dp-spring-boot-starter</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

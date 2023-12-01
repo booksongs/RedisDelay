@@ -1,4 +1,4 @@
-package com.dp.example;
+package com.tiexiu.dp.example;
 
 import com.tiexiu.dq.annotation.RedisListener;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ public class ListeningExample {
     )
     public void example2(Order order) {
         log.info("ORDER_TIMEOUT_NOT_EVALUATED:{}", order);
-        throw new RuntimeException("test");
+//        throw new RuntimeException("test");
     }
 
 }

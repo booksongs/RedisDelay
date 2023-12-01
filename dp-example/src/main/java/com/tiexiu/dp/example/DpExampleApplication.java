@@ -1,16 +1,14 @@
-package com.dp.example;
+package com.tiexiu.dp.example;
 
 
-import com.tiexiu.dq.annotation.EnableRedisDelay;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@EnableRedisDelay
+//@EnableRedisDelay
 public class DpExampleApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DpExampleApplication.class, args);
     }
-
 }
