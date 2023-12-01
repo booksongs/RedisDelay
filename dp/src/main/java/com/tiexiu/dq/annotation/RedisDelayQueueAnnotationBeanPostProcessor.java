@@ -23,7 +23,7 @@ public class RedisDelayQueueAnnotationBeanPostProcessor implements BeanPostProce
     public Object postProcessAfterInitialization(final Object bean, final String beanName) throws BeansException {
         Class<?> targetClass = AopUtils.getTargetClass(bean);
         for (Method method : targetClass.getDeclaredMethods()) {
-            RedisDelayQueue annotation = method.getAnnotation(RedisDelayQueue.class);
+            RedisListener annotation = method.getAnnotation(RedisListener.class);
             if (annotation != null) {
                 RedisListenerEndpointRegistrar redisListenerEndpointRegistrar = new RedisListenerEndpointRegistrar();
                 String containerFactory = annotation.containerFactory();

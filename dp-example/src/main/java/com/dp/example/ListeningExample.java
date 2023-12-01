@@ -1,6 +1,6 @@
 package com.dp.example;
 
-import com.tiexiu.dq.annotation.RedisDelayQueue;
+import com.tiexiu.dq.annotation.RedisListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ListeningExample {
 
-    @RedisDelayQueue(value = "ORDER_PAYMENT_TIMEOUT")
+    @RedisListener(value = "ORDER_PAYMENT_TIMEOUT")
     public void example1(Order order) {
         log.info("ORDER_PAYMENT_TIMEOUT:{}", order);
     }
 
-    @RedisDelayQueue(value = "ORDER_TIMEOUT_NOT_EVALUATED",
+    @RedisListener(value = "ORDER_TIMEOUT_NOT_EVALUATED",
             containerFactory = "customRedissonDelayQueue",
             isRetry = true,
             retryAttempts = 3

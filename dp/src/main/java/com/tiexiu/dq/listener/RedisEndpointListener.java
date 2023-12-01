@@ -1,6 +1,6 @@
 package com.tiexiu.dq.listener;
 
-import com.tiexiu.dq.annotation.RedisDelayQueue;
+import com.tiexiu.dq.annotation.RedisListener;
 import com.tiexiu.dq.config.DelayRedisson;
 import com.tiexiu.dq.config.RedissonProperties;
 import com.tiexiu.dq.confirm.ConfirmPersistenceStrategy;
@@ -56,7 +56,7 @@ public class RedisEndpointListener implements ApplicationListener<ApplicationRea
                 ConfirmUtil.del(ConfirmUtil.RETRY + listenerEndpoint.getEndpoint(), delayRedisson);
             } catch (Exception e) {
                 RedissonProperties properties = applicationContext.getBean(RedissonProperties.class);
-                RedisDelayQueue annotation = listenerEndpoint.getMethod().getAnnotation(RedisDelayQueue.class);
+                RedisListener annotation = listenerEndpoint.getMethod().getAnnotation(RedisListener.class);
                 Map<String, ConfirmPersistenceStrategy> beansOfType =
                         applicationContext.getBeansOfType(ConfirmPersistenceStrategy.class);
                 ConfirmPersistenceStrategy confirmPersistenceStrategy =
