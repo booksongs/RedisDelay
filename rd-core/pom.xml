@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.tiexiu</groupId>
+        <groupId>io.github.booksongs</groupId>
         <artifactId>RedisDelay</artifactId>
         <version>0.0.1</version>
     </parent>
@@ -35,7 +35,6 @@
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
-            <version>3.23.1</version>
         </dependency>
 
     </dependencies>

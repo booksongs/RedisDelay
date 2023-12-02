@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.tiexiu.rd.starter.RdAutoConfiguration
+io.github.booksongs.rd.starter.RdAutoConfiguration

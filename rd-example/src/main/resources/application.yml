@@ -11,5 +11,5 @@ server:
 logging:
   level:
     root: info
-    com.tiexiu.rd: debug
+    io.github.booksongs: debug
 
