@@ -1,7 +1,7 @@
 package io.github.booksongs.rd.example.listener;
 
-import io.github.booksongs.rd.example.domain.Order;
 import io.github.booksongs.rd.annotation.RedisListener;
+import io.github.booksongs.rd.example.domain.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
