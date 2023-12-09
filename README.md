@@ -21,7 +21,7 @@
         database: 1
 ```
 3. 编写要发送的消息的实体类,需要继承Provider类,这个类会自动生成id和发送时间
-4. 可以使用DelayRedissonUtil.offer方法,添加延时任务,需要指定topic
+4. 注入DelayTemplate使用offer方法,添加延时任务,需要指定topic
 4. 使用@RedisListener注解标记你的方法,指定topic和你创建的继承Provider的类,就可以接收到指定的延时消息
 
 ## 其他功能
