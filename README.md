@@ -20,9 +20,9 @@
         port: 3306
         database: 1
 ```
-3. 编写要发送的消息的实体类,需要继承Provider类,这个类会自动生成id和发送时间
+3. 编写要发送的消息的实体类,可以选择继承Provider类(这个类会自动生成id和发送时间),或者任意类,也可以使用String
 4. 注入DelayTemplate使用offer方法,添加延时任务,需要指定topic
-4. 使用@RedisListener注解标记你的方法,指定topic和你创建的继承Provider的类,就可以接收到指定的延时消息
+4. 使用@RedisListener注解标记你的方法,指定topic,参数支持jdk类型String,Map.和自定义类型
 
 ## 其他功能
 
