@@ -2,7 +2,6 @@ package io.github.booksongs.rd.example.confirm;
 
 import io.github.booksongs.rd.confirm.AbstractConfirmPersistenceStrategy;
 import io.github.booksongs.rd.listener.MethodRedisListenerEndpoint;
-import io.github.booksongs.rd.listener.Provider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class JdbcConfirmPersistenceStrategy extends AbstractConfirmPersistenceStrategy {
 
     @Override
-    protected void saveRecord(Provider message, MethodRedisListenerEndpoint listenerEndpoint) {
+    protected void saveRecord(Object message, MethodRedisListenerEndpoint listenerEndpoint) {
 
     }
 }

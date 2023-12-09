@@ -1,7 +1,6 @@
 package io.github.booksongs.rd.confirm;
 
 import io.github.booksongs.rd.listener.MethodRedisListenerEndpoint;
-import io.github.booksongs.rd.listener.Provider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +9,8 @@ import org.springframework.stereotype.Component;
 public class DefaultConfirmPersistenceStrategy extends AbstractConfirmPersistenceStrategy {
 
     @Override
-    protected void saveRecord(Provider message, MethodRedisListenerEndpoint listenerEndpoint) {
+    protected void saveRecord(Object message, MethodRedisListenerEndpoint listenerEndpoint) {
         ConfirmUtil.addDeadLetterQueue(DEAD_LETTER, listenerEndpoint.getDelayRedisson(), new DeadLetterProvider(message,listenerEndpoint.getEndpoint()));
     }
+
 }

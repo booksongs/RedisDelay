@@ -2,34 +2,30 @@ package io.github.booksongs.rd.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.booksongs.rd.config.DelayRedisson;
-import io.github.booksongs.rd.listener.Provider;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBlockingDeque;
 import org.redisson.api.RDelayedQueue;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-public class DelayRedissonUtil {
+public class DelayTemplate {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    private static DelayRedisson delayRedisson;
+    @Autowired
+    @Qualifier("delayRedisson")
+    private DelayRedisson delayRedisson;
 
-    public static void setDelayRedisson(DelayRedisson delayRedisson) {
-        DelayRedissonUtil.delayRedisson = delayRedisson;
-    }
-
-    public static <T extends Provider> void offer(T value, long delay, String topic) {
+    public <T> void offer(T value, long delay, String topic) {
         try {
             if (delay < 0) {
                 delay = 0;
             }
             RBlockingDeque<T> blockingDeque = delayRedisson.getBlockingDeque(topic);
             RDelayedQueue<T> delayedQueue = delayRedisson.getDelayedQueue(blockingDeque);
-            value.setId(UUID.randomUUID().toString());
-            value.setSendTime(System.currentTimeMillis());
             delayedQueue.offer(value, delay, TimeUnit.SECONDS);
             if (log.isDebugEnabled()) {
                 log.info("Adding the delay queue succeeded. Queue key：{}，Queue value：{}，Delay time：{}",
@@ -40,15 +36,13 @@ public class DelayRedissonUtil {
         }
     }
 
-    public static <T extends Provider> void offer(T value, long delay, String topic, DelayRedisson delayRedisson) {
+    public <T> void offer(T value, long delay, String topic, DelayRedisson delayRedisson) {
         try {
             if (delay < 0) {
                 delay = 0;
             }
             RBlockingDeque<T> blockingDeque = delayRedisson.getBlockingDeque(topic);
             RDelayedQueue<T> delayedQueue = delayRedisson.getDelayedQueue(blockingDeque);
-            value.setId(UUID.randomUUID().toString());
-            value.setSendTime(System.currentTimeMillis());
             delayedQueue.offer(value, delay, TimeUnit.SECONDS);
             if (log.isDebugEnabled()) {
                 log.info("Adding the delay queue succeeded. Queue key：{}，Queue value：{}，Delay time：{}",

@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.github.booksongs</groupId>
         <artifactId>RedisDelay</artifactId>
-        <version>0.0.2</version>
+        <version>0.0.3</version>
     </parent>
 
     <artifactId>rd-core</artifactId>
@@ -37,6 +37,10 @@
             <artifactId>redisson</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

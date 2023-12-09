@@ -1,6 +1,5 @@
 package io.github.booksongs.rd.confirm;
 
-import io.github.booksongs.rd.listener.Provider;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +8,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class DeadLetterProvider {
-    private Provider provide;
+    private Object provide;
     private String topic;
 }

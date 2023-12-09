@@ -12,7 +12,7 @@
 
     <groupId>io.github.booksongs</groupId>
     <artifactId>RedisDelay</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <name>RedisDelay</name>
     <description>RedisDelay</description>
     <url>https://github.com/booksongs/RedisDelay</url>
@@ -51,7 +51,7 @@
 
     <modules>
         <module>rd-core</module>
-<!--        <module>rd-example</module>-->
+        <module>rd-example</module>
         <module>rd-spring-boot-starter</module>
     </modules>
 
@@ -83,6 +83,11 @@
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
                 <version>${redisson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>2.0.37</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
